@@ -6,4 +6,6 @@ abstract class MovieInterface {
   Future<BasePaginatedResponseEntity<MovieEntity>?> fetchMovies(int page);
   Future<BasePaginatedResponseEntity<MovieEntity>?> searchMovies(String query,
       {int? page});
+  Future<BasePaginatedResponseEntity<MovieEntity>?> fetchTopRatedMovies(int page);
+
 }

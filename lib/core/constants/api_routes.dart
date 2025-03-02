@@ -8,6 +8,8 @@ class ApiRoutes {
   static const String movie = '$baseUrl/movie';
   static const String moviePopular = '$movie/popular?api_key=$_apiKey';
 
+  static const String movieTopRated = '$movie/top_rated?api_key=$_apiKey';
+
   static const String search = '$baseUrl/search';
   static const String movieSearch = '$search/movie?api_key=$_apiKey';
 }

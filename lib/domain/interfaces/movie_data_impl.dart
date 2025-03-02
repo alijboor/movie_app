@@ -13,9 +13,11 @@ class MovieRemoteDataSourceImpl implements MovieInterface {
 
   @override
   Future<BasePaginatedResponseEntity<MovieEntity>?> fetchMovies(
-      int page) async {
-    final response =
-        await client.get(Uri.parse('${ApiRoutes.moviePopular}&page=$page'));
+    int page,
+  ) async {
+    final response = await client.get(
+      Uri.parse('${ApiRoutes.moviePopular}&page=$page'),
+    );
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       return BasePaginatedResponseEntity<MovieEntity>.fromJson(
@@ -28,10 +30,31 @@ class MovieRemoteDataSourceImpl implements MovieInterface {
   }
 
   @override
-  Future<BasePaginatedResponseEntity<MovieEntity>?> searchMovies(String query,
-      {int? page}) async {
-    final response = await client
-        .get(Uri.parse('${ApiRoutes.movieSearch}&query=$query&page=$page'));
+  Future<BasePaginatedResponseEntity<MovieEntity>?> searchMovies(
+    String query, {
+    int? page,
+  }) async {
+    final response = await client.get(
+      Uri.parse('${ApiRoutes.movieSearch}&query=$query&page=$page'),
+    );
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return BasePaginatedResponseEntity<MovieEntity>.fromJson(
+        data,
+        (movie) => MovieEntity.fromJson(movie),
+      );
+    }
+    DialogService().showErrorDialog(response.reasonPhrase ?? '');
+    return null;
+  }
+
+  @override
+  Future<BasePaginatedResponseEntity<MovieEntity>?> fetchTopRatedMovies(
+    int page,
+  ) async {
+    final response = await client.get(
+      Uri.parse('${ApiRoutes.movieTopRated}&page=$page'),
+    );
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       return BasePaginatedResponseEntity<MovieEntity>.fromJson(

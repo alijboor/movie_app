@@ -13,4 +13,5 @@ class LangKeys {
   static String emptyMovies = 'Sorry, No Movies Found!';
   static String ok = 'Ok';
   static String error = 'Error';
+  static String topRatedMovies = 'Top Rated Movies';
 }
