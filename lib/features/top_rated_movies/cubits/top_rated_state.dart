@@ -11,6 +11,7 @@ abstract class TopRatedState extends Equatable {
 class TopRatedInitial extends TopRatedState {}
 
 class TopRatedLoading extends TopRatedState {}
+class TopRatedFavUpdate extends TopRatedState {}
 
 class TopRatedLoaded extends TopRatedState {
   final List<MovieEntity> movies;

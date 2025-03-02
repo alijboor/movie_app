@@ -26,7 +26,10 @@ class _TopRatedMoviesBodyState extends State<TopRatedMoviesBody> {
         return state is TopRatedLoading
             ? const Center(child: CircularProgressIndicator())
             : state is TopRatedLoaded && state.movies.isNotEmpty
-            ? MoviesGridBuilder.withoutLoadMore(movies: state.movies)
+            ? MoviesGridBuilder.withoutLoadMore(
+              movies: state.movies,
+              toggleFav: context.read<TopRatedCubit>().toggleFavorite,
+            )
             : Center(child: Text(LangKeys.emptyMovies));
       },
     );

@@ -11,6 +11,7 @@ class HomeInitial extends HomeState {}
 class HomeLoading extends HomeState {}
 class HomeLoadingMore extends HomeState {}
 class HomeSearchClear extends HomeState {}
+class HomeFavUpdate extends HomeState {}
 
 
 class HomeLoaded extends HomeState {

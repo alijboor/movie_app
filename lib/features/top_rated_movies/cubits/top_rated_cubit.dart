@@ -29,4 +29,14 @@ class TopRatedCubit extends Cubit<TopRatedState> {
       emit(TopRatedError(e.toString()));
     }
   }
+
+  void toggleFavorite(MovieEntity movie) async {
+    await favManager.toggleFavorite(movie);
+    final movies =
+        paginated?.results?.whereType<MovieEntity>().toList() ?? [];
+    emit(TopRatedFavUpdate());
+
+    emit(TopRatedLoaded(movies: movies));
+  }
+
 }

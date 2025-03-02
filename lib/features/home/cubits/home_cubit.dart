@@ -117,6 +117,8 @@ class HomeCubit extends Cubit<HomeState> {
     await favManager.toggleFavorite(movie);
     final currentState = state;
     if (currentState is HomeLoaded) {
+      emit(HomeFavUpdate());
+
       emit(
         HomeLoaded(
           movies: currentState.movies,

@@ -7,14 +7,19 @@ import 'package:movie_app/features/home/widgets/poster_image.dart';
 import 'rating_favorite_action_row.dart';
 
 class MoviesGridBuilder extends StatelessWidget {
-  const MoviesGridBuilder({required this.movies, super.key})
+  const MoviesGridBuilder({required this.movies, this.toggleFav, super.key})
     : _withLoadMore = true;
 
-  const MoviesGridBuilder.withoutLoadMore({required this.movies, super.key})
-    : _withLoadMore = false;
+  const MoviesGridBuilder.withoutLoadMore({
+    required this.movies,
+    this.toggleFav,
+    super.key,
+  }) : _withLoadMore = false;
 
   final List<MovieEntity> movies;
   final bool _withLoadMore;
+
+  final ValueChanged<MovieEntity>? toggleFav;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +37,7 @@ class MoviesGridBuilder extends StatelessWidget {
           ),
           itemCount:
               movies.length +
-              ((_withLoadMore && state is HomeLoadingMore)
-                  ? 1
-                  : 0),
+              ((_withLoadMore && state is HomeLoadingMore) ? 1 : 0),
           itemBuilder: (context, index) {
             if (_withLoadMore && state is HomeLoadingMore) {
               return const Center(child: CircularProgressIndicator());
@@ -63,7 +66,7 @@ class MoviesGridBuilder extends StatelessWidget {
                     RatingFavoriteActionRow(
                       movie: movie,
                       isFav: cubit.favManager.isFavorite,
-                      toggleFav: cubit.toggleFavState,
+                      toggleFav: toggleFav ?? cubit.toggleFavState,
                     ),
                   ],
                 ),
