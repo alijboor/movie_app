@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 import 'package:movie_app/core/constants/lang_keys.dart';
+import 'package:movie_app/features/home/cubits/home_cubit.dart';
 import 'package:movie_app/features/home/widgets/home_body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,14 +9,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: Scaffold(
         appBar: AppBar(title: Text(LangKeys.home)),
-        body: Container(),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          child: const Icon(Icons.favorite, color: Colors.red, size: 35),
-          onPressed: () {},
-        ),
+        body: const HomeBody(),
+      ),
     );
   }
 }
