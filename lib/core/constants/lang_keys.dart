@@ -1,6 +1,7 @@
 class LangKeys {
   static String appName = 'Movie Explorer App';
   static String home = 'Home';
+  static String favorites = 'Favorites';
   static String search = 'search ';
   static String searchHint = 'What you are Looking for';
   static String clear = 'clear';
