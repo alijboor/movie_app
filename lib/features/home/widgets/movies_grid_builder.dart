@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
 import 'package:movie_app/features/home/cubits/home_cubit.dart';
 import 'package:movie_app/features/home/cubits/home_state.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/features/home/widgets/poster_image.dart';
 import 'rating_favorite_action_row.dart';
 

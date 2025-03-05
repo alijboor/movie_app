@@ -4,12 +4,14 @@ class ApiRoutes {
 
   static const String baseUrl = 'https://api.themoviedb.org/3';
   static const String imageRoute = 'https://image.tmdb.org/t/p/w400';
+  static const String apiKey = '?api_key=$_apiKey';
+
 
   static const String movie = '$baseUrl/movie';
-  static const String moviePopular = '$movie/popular?api_key=$_apiKey';
+  static const String moviePopular = '$movie/popular$apiKey';
 
-  static const String movieTopRated = '$movie/top_rated?api_key=$_apiKey';
+  static const String movieTopRated = '$movie/top_rated$apiKey';
 
   static const String search = '$baseUrl/search';
-  static const String movieSearch = '$search/movie?api_key=$_apiKey';
+  static const String movieSearch = '$search/movie$apiKey';
 }

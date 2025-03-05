@@ -1,9 +1,6 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/storage_keys.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
-import 'package:movie_app/features/favorites/screens/favorites_screen.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoriteManager {
@@ -44,11 +41,4 @@ class FavoriteManager {
 
   bool isFavorite(MovieEntity movie) =>
       _favoriteMovies.any((e) => e.id == movie.id);
-
-  void toFavScreen(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => FavoritesScreen()),
-    );
-  }
 }

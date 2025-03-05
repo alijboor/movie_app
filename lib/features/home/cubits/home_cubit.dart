@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/domain/entities/base_paginated_response_entity.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
-import 'package:movie_app/domain/interfaces/movie_data_impl.dart';
 import 'package:movie_app/core/managers/favorite_manager.dart';
 import 'package:movie_app/features/home/cubits/home_state.dart';
+import 'package:movie_app/features/home/domain/entities/base_paginated_response_entity.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/home/data/repositories/movie_data_impl.dart';
 import 'package:movie_app/features/movie_details/screens/movie_details_screen.dart';
 
 class HomeCubit extends Cubit<HomeState> {

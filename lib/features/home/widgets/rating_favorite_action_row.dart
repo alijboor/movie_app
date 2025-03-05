@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/features/home/widgets/rating_icon.dart';
 
 class RatingFavoriteActionRow extends StatelessWidget {

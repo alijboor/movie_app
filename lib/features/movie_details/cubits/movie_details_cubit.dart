@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/managers/favorite_manager.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/features/movie_details/cubits/movie_details_state.dart';
 
 class MovieDetailsCubit extends Cubit<MovieDetailsState> {

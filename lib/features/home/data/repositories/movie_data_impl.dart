@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movie_app/core/constants/api_routes.dart';
 import 'package:movie_app/core/services/dialog_service.dart';
-import 'package:movie_app/domain/entities/base_paginated_response_entity.dart';
-import 'package:movie_app/domain/entities/movie_entity.dart';
-import 'package:movie_app/domain/interfaces/movie_interface.dart';
+import 'package:movie_app/features/home/domain/entities/base_paginated_response_entity.dart';
+import 'package:movie_app/features/home/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/home/domain/interfaces/movie_interface.dart';
 
 class MovieRemoteDataSourceImpl implements MovieInterface {
   final http.Client client;
